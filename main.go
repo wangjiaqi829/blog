@@ -2,9 +2,7 @@ package main
 
 import (
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/orm"
-	_ "github.com/go-sql-driver/mysql"
-	"blog/models"
+	_"blog/routers"
 )
 
 func main() {

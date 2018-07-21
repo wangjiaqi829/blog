@@ -15,8 +15,6 @@ var pathArr []string = []string{"", BIG_PIC_PATH, SMALL_PIC_PATH, FILE_PATH}
 
 type baseController struct {
 	beego.Controller
-	userid         int64
-	username       string
 	moduleName     string
 	controllerName string
 	actionName     string

@@ -1,6 +1,4 @@
 package models
-<<<<<<< HEAD
-=======
 
 import (
 	"github.com/astaxie/beego/orm"
@@ -8,10 +6,10 @@ import (
 
 //友情链接
 type Link struct {
-	Id       int64
-	Sitename string `orm:"size(80)"`
-	Url      string `orm:"size(200)"`
-	Rank     int8
+	Id       int64  `orm:"pk"  json:"id"`
+	SiteName string `json:"siteName"`
+	Url      string `json:"url"`
+	Rank     int8   `json:"rank"`
 }
 
 func (m *Link) TableName() string {
@@ -54,4 +52,3 @@ func (m *Link) Delete() error {
 func (m *Link) Query() orm.QuerySeter {
 	return orm.NewOrm().QueryTable(m)
 }
->>>>>>> 07442226966015f0ad8778f6ebd5d3ffdd491a79
