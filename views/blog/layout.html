@@ -1,22 +1,39 @@
 <!doctype html>
 <html lang="zh-cn">
     <head>
-        <meta charset="gb2312">
-        <title>{{.title}}</title>
-        <meta name="keywords" content="{{.keywords}}">
-        <meta name="description" content="{{.description}}">
-        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-        <link href="/static/css/base.css" rel="stylesheet">
-        {{str2html .hidejs}}
+        <meta charset="utf-8">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        {{.head}}
-        {{.banner}}
-        {{.middle}}
-        <article>
-            {{.LayoutContent}}
-            {{.right}}
-        </article>
-        {{.foot}}
+
+    <div class="container-fluid">
+            <div class="col-xs-2">
+                <header>
+                    <h1><a href="/">头像</a></h1>
+                    <p><a href="/">唯一不变的就是改变~~~</a></p>
+                </header>
+
+                <nav>
+                    <ul>
+                        <li><a href="/home.html"><span>首页</span></a></li>
+                        <li> <a href="/series.html"><span>专题</span></a></li>
+                        <li><a href="/archive.html"><span>归档</span></a></li>
+                        <li><a href="/link.html"><span>友链</span></a></li>
+                        <li><a href="/about.html"><span>关于</span></a></li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="col-xs-10">
+                 <section>
+                    {{.LayoutContent}}
+                </section>
+                <footer>
+                    底部
+                </footer>
+            </div>
+        </div>
+    </div>
+
     </body>
 </html>

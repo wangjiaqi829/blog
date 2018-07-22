@@ -6,7 +6,7 @@ import (
 )
 
 type LinkController struct {
-	baseController
+	BaseController
 }
 
 //友链列表

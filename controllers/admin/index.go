@@ -6,7 +6,7 @@ import (
 )
 
 type IndexController struct {
-	baseController
+	BaseController
 }
 
 func (this *IndexController) Index() {

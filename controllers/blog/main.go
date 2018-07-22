@@ -1,24 +1,16 @@
 package blog
 
-import (
-	"blog/models"
-)
-
 type MainController struct {
-	baseController
+	BaseController
 }
 
 //首页, 只显示前N条
 func (this *MainController) Index() {
-	var list []*models.Article
-	query := new(models.Article).Query().Filter("status", 0).Filter("urltype", 0)
+	/*var list []*models.Article
+	query := new(models.Article).Query()
 	count, _ := query.Count()
-	if count > 0 {
-		query.OrderBy("-istop", "-views").Limit(this.pagesize, (this.page-1)*this.pagesize).All(&list)
-	}
 	this.Data["list"] = list
-	this.Data["pagebar"] = models.NewPager(int64(this.page), int64(count), int64(this.pagesize), "/index%d.html").ToString()
-	this.setHeadMetas()
+	this.Data["pagebar"] = models.NewPager(int64(this.page), int64(count), int64(this.pagesize), "/index%d.html").ToString()*/
 	this.display("index")
 }
 
@@ -26,7 +18,6 @@ func (this *MainController) Index() {
 
 //留404页面
 func (this *MainController) Go404() {
-	this.setHeadMetas("Sorry 404页面没找到")
 	this.display("404")
 }
 

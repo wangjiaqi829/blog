@@ -13,14 +13,14 @@ const (
 
 var pathArr []string = []string{"", BIG_PIC_PATH, SMALL_PIC_PATH, FILE_PATH}
 
-type baseController struct {
+type BaseController struct {
 	beego.Controller
 	moduleName     string
 	controllerName string
 	actionName     string
 }
 
-func (this *baseController) Prepare() {
+func (this *BaseController) Prepare() {
 	controllerName, actionName := this.GetControllerAndAction()
 	this.moduleName = "admin"
 	this.controllerName = strings.ToLower(controllerName[0 : len(controllerName)-10])
@@ -29,7 +29,7 @@ func (this *baseController) Prepare() {
 }
 
 //登录状态验证
-/*func (this *baseController) auth() {
+/*func (this *BaseController) auth() {
 	if this.controllerName == "account" && (this.actionName == "login" || this.actionName == "logout") {
 
 	} else {
@@ -53,7 +53,7 @@ func (this *baseController) Prepare() {
 }*/
 
 //渲染模版
-func (this *baseController) display(tpl ...string) {
+func (this *BaseController) display(tpl ...string) {
 	var tplname string
 	if len(tpl) == 1 {
 		tplname = this.moduleName + "/" + tpl[0] + ".html"
@@ -68,7 +68,7 @@ func (this *baseController) display(tpl ...string) {
 }
 
 //显示错误提示
-func (this *baseController) showmsg(msg ...string) {
+func (this *BaseController) showmsg(msg ...string) {
 	if len(msg) == 1 {
 		msg = append(msg, this.Ctx.Request.Referer())
 	}
@@ -83,18 +83,18 @@ func (this *baseController) showmsg(msg ...string) {
 }
 
 //是否post提交
-func (this *baseController) isPost() bool {
+func (this *BaseController) isPost() bool {
 	return this.Ctx.Request.Method == "POST"
 }
 
 //获取用户IP地址
-func (this *baseController) getClientIp() string {
+func (this *BaseController) getClientIp() string {
 	s := strings.Split(this.Ctx.Request.RemoteAddr, ":")
 	return s[0]
 }
 
 //权限验证
-func (this *baseController) checkPermission() {
+func (this *BaseController) checkPermission() {
 	if this.userid != 1 && this.controllerName == "user" {
 		this.showmsg("抱歉，只有超级管理员才能进行该操作！")
 	}
